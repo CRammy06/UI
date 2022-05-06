@@ -1,0 +1,68 @@
+<div>
+  <form [formGroup]="addEditForm" (ngSubmit)="onSave()">
+    <div>
+      <div>
+        <div class="mb-3 row">
+          <label class="col-sm-3 col-form-label">First Name*</label>
+          <div class="col-sm-9">
+            <input type="text" class="form-control" placeholder="Enter First Name" formControlName="firstName">
+            <span *ngIf="addEditForm.controls['firstName'].dirty && addEditForm.controls['firstName'].invalid"
+              class="invalid-feedback">
+              <span
+                *ngIf="addEditForm.controls['firstName'].errors && addEditForm.controls['firstName'].errors['required']">
+                Last Name is required.</span>
+
+            </span>
+          </div>
+        </div>
+
+        <div class="mb-3 row">
+          <label class="col-sm-3 col-form-label">Middle Name</label>
+          <div class="col-sm-9">
+            <input type="text" class="form-control" placeholder="Enter Middle Name" formControlName="middleName">
+          </div>
+        </div>
+        <div class="mb-3 row">
+          <label class="col-sm-3 col-form-label">Last Name* </label>
+          <div class="col-sm-9">
+            <input type="text" class="form-control" placeholder="Enter Last Name" formControlName="lastName">
+            <span *ngIf="addEditForm.controls['lastName'].dirty && addEditForm.controls['lastName'].invalid"
+              class="invalid-feedback">
+              <span
+                *ngIf="addEditForm.controls['lastName'].errors && addEditForm.controls['lastName'].errors['required']">
+                Last Name is required.</span>
+
+            </span>
+          </div>
+        </div>
+        <div class="mb-3 row">
+          <label class="col-sm-3 col-form-label">Age </label>
+          <div class="col-sm-9">
+            <input type="text" class="form-control" placeholder="Enter Age" formControlName="age">
+
+          </div>
+        </div>
+
+        <div class="mb-4 row">
+          <label class="col-sm-3 col-form-label">Gender</label>
+          <div class="col-sm-9">
+            <div class="custom-radio-btn me-3">
+              <input id="male" type="radio" value="M" name="gender" formControlName="gender">
+              <label for="male">Male</label>
+            </div>
+            <div class="custom-radio-btn">
+              <input id="female" type="radio" value="F" name="gender" formControlName="gender">
+              <label for="female">Female</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+
+      <div class="btn-wrap">
+        <button type="submit" class="fill-btn btn-save" [disabled]="addEditForm.invalid">Save</button>
+      </div>
+    </div>
+  </form>
+</div>
